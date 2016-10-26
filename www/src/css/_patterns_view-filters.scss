@@ -1,0 +1,12 @@
+@mixin p-view-filter {
+
+  .p-view-filter {
+
+    &__icon {
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

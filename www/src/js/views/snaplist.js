@@ -20,8 +20,8 @@ module.exports = Marionette.CompositeView.extend({
   ui: {
     'sortAlpha': '#sortAlpha',
     'sortBytes': '#sortBytes',
-    'styleRow': '#styleRow',
-    'styleGrid': '#styleGrid'
+    'styleRow': '#js-style-row',
+    'styleGrid': '#js-style-grid'
   },
 
   events: {
@@ -48,6 +48,8 @@ module.exports = Marionette.CompositeView.extend({
   },
 
   styleGrid: function() {
+
+    debugger;
     this.model.set('isGrid', true);
 
     this.$('#js-snaplist')
@@ -59,6 +61,8 @@ module.exports = Marionette.CompositeView.extend({
   },
 
   styleRow: function() {
+
+    debugger;
     this.model.set('isGrid', false);
 
     this.$('#js-snaplist')
@@ -67,14 +71,6 @@ module.exports = Marionette.CompositeView.extend({
 
     this.$('#styleGrid').removeClass('b-button_active');
     this.$('#styleRow').addClass('b-button_active');
-  },
-
-  childViewOptions: function(model, index) {
-    var lastCol = (index != 0 && ((index + 1) % 4) == 0);
-
-    return {
-      lastCol: lastCol
-    };
   },
 
   childView: SnaplistItemView,
